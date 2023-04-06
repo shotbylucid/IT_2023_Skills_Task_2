@@ -1,0 +1,17 @@
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\bin\Debug\net6.0-windows\DiceRoll.exe
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\bin\Debug\net6.0-windows\DiceRoll.deps.json
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\bin\Debug\net6.0-windows\DiceRoll.runtimeconfig.json
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\bin\Debug\net6.0-windows\DiceRoll.dll
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\bin\Debug\net6.0-windows\DiceRoll.pdb
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\obj\Debug\net6.0-windows\DiceRoll.vbproj.AssemblyReference.cache
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\obj\Debug\net6.0-windows\DiceRoll.Form1.resources
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\obj\Debug\net6.0-windows\DiceRoll.vbproj.GenerateResource.cache
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\obj\Debug\net6.0-windows\DiceRoll.GeneratedMSBuildEditorConfig.editorconfig
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\obj\Debug\net6.0-windows\DiceRoll.AssemblyInfoInputs.cache
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\obj\Debug\net6.0-windows\DiceRoll.AssemblyInfo.vb
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\obj\Debug\net6.0-windows\DiceRoll.vbproj.CoreCompileInputs.cache
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\obj\Debug\net6.0-windows\DiceRoll.dll
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\obj\Debug\net6.0-windows\refint\DiceRoll.dll
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\obj\Debug\net6.0-windows\DiceRoll.pdb
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\obj\Debug\net6.0-windows\DiceRoll.genruntimeconfig.cache
+Y:\000_Active\Skills_Task_2\DiceRoll\DiceRoll\obj\Debug\net6.0-windows\ref\DiceRoll.dll

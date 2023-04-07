@@ -30,8 +30,9 @@ Partial Class Form1
         btn_Close = New Button()
         tbx_BetAmount = New TextBox()
         cmb_RollValue = New ComboBox()
-        cmb_RollAmount = New ComboBox()
         cmb_DifficultyLevel = New ComboBox()
+        lbl_RollValue = New Label()
+        lbl_DifficultyLevel = New Label()
         SuspendLayout()
         ' 
         ' btn_Roll
@@ -56,6 +57,7 @@ Partial Class Form1
         ' 
         tbx_Cash.Location = New Point(370, 948)
         tbx_Cash.Name = "tbx_Cash"
+        tbx_Cash.ReadOnly = True
         tbx_Cash.Size = New Size(200, 39)
         tbx_Cash.TabIndex = 2
         ' 
@@ -63,6 +65,7 @@ Partial Class Form1
         ' 
         tbx_Bank.Location = New Point(370, 1037)
         tbx_Bank.Name = "tbx_Bank"
+        tbx_Bank.ReadOnly = True
         tbx_Bank.Size = New Size(200, 39)
         tbx_Bank.TabIndex = 3
         ' 
@@ -99,29 +102,38 @@ Partial Class Form1
         cmb_RollValue.Size = New Size(171, 40)
         cmb_RollValue.TabIndex = 7
         ' 
-        ' cmb_RollAmount
-        ' 
-        cmb_RollAmount.FormattingEnabled = True
-        cmb_RollAmount.Location = New Point(328, 90)
-        cmb_RollAmount.Name = "cmb_RollAmount"
-        cmb_RollAmount.Size = New Size(242, 40)
-        cmb_RollAmount.TabIndex = 8
-        ' 
         ' cmb_DifficultyLevel
         ' 
         cmb_DifficultyLevel.FormattingEnabled = True
-        cmb_DifficultyLevel.Location = New Point(565, 389)
+        cmb_DifficultyLevel.Location = New Point(328, 90)
         cmb_DifficultyLevel.Name = "cmb_DifficultyLevel"
         cmb_DifficultyLevel.Size = New Size(242, 40)
         cmb_DifficultyLevel.TabIndex = 9
         ' 
+        ' lbl_RollValue
+        ' 
+        lbl_RollValue.AutoSize = True
+        lbl_RollValue.Location = New Point(128, 55)
+        lbl_RollValue.Name = "lbl_RollValue"
+        lbl_RollValue.Size = New Size(169, 32)
+        lbl_RollValue.TabIndex = 10
+        lbl_RollValue.Text = "Lucky Number"' 
+        ' lbl_DifficultyLevel
+        ' 
+        lbl_DifficultyLevel.AutoSize = True
+        lbl_DifficultyLevel.Location = New Point(365, 55)
+        lbl_DifficultyLevel.Name = "lbl_DifficultyLevel"
+        lbl_DifficultyLevel.Size = New Size(172, 32)
+        lbl_DifficultyLevel.TabIndex = 11
+        lbl_DifficultyLevel.Text = "Difficulty Level"' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(13F, 32F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(800, 1191)
+        Controls.Add(lbl_DifficultyLevel)
+        Controls.Add(lbl_RollValue)
         Controls.Add(cmb_DifficultyLevel)
-        Controls.Add(cmb_RollAmount)
         Controls.Add(cmb_RollValue)
         Controls.Add(tbx_BetAmount)
         Controls.Add(btn_Close)
@@ -144,6 +156,7 @@ Partial Class Form1
     Friend WithEvents btn_Close As Button
     Friend WithEvents tbx_BetAmount As TextBox
     Friend WithEvents cmb_RollValue As ComboBox
-    Friend WithEvents cmb_RollAmount As ComboBox
     Friend WithEvents cmb_DifficultyLevel As ComboBox
+    Friend WithEvents lbl_RollValue As Label
+    Friend WithEvents lbl_DifficultyLevel As Label
 End Class

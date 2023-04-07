@@ -22,21 +22,27 @@
         ' Get the selected roll value from the ComboBox control
         Dim rollValue As Integer = CInt(cmb_RollValue.SelectedItem)
 
+
         ' Get the selected number of rolls from the ComboBox control
-        Dim rollAmount As Integer = CInt(cmb_RollAmount.SelectedItem)
+        ' Dim rollAmount As Integer = CInt(cmb_RollAmount.SelectedItem)
+
 
         ' Get the selected difficulty level from the ComboBox control
         Dim difficultyLevel As Integer = CInt(cmb_DifficultyLevel.SelectedItem)
 
         ' Set the reward multiplier based on the difficulty level
         Dim rewardMultiplier As Decimal = 1.0
+        Dim rollAmount As Integer
         Select Case difficultyLevel
             Case 1
                 rewardMultiplier = 1.0
+                rollAmount = 500
             Case 2
                 rewardMultiplier = 1.5
+                rollAmount = 250
             Case 3
                 rewardMultiplier = 2.0
+                rollAmount = 1
             Case Else
                 rewardMultiplier = 1.0
         End Select
@@ -57,19 +63,19 @@
 
             ' Check if we got the selected roll value
             If total = rollValue Then
-                count += betAmount * 2
-                count1 += 1
+                count += betAmount * rewardMultiplier
+                count1 += betAmount * rewardMultiplier
             End If
         Next
 
-        ' Shows amount of cash in 
+        ' Shows your balance
         Dim BankBal As Decimal
         BankBal = count
-        tbx_Bank.Text() = BankBal
+        tbx_Bank.Text() = "Balance: " & BankBal
 
-        ' Display the number of times we got the selected roll value
+        ' Shows how much you won
         Dim CashBal As Decimal
-        CashBal = betAmount * count1
+        CashBal = count1
         tbx_Cash.Text = "Cash Won: " & CashBal
 
     End Sub
@@ -78,6 +84,17 @@
 
         ' Put back to starting Amount
         count = 500
+
+        ' Shows your balance
+        Dim BankBal As Decimal
+        BankBal = count
+        tbx_Bank.Text() = "Balance: " & BankBal
+
+        ' Displays "Cash Won:" text
+        tbx_Cash.Text = "Cash Won: "
+
+        ' Displays text indicating where to put your bet
+        tbx_BetAmount.Text() = "Place Bet Here"
 
         ' TextBoxes
         tbx_Cash.Clear()
@@ -96,20 +113,29 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        ' Shows amount of cash
+        ' Shows your balance
         Dim BankBal As Decimal
         BankBal = count
-        tbx_Bank.Text() = BankBal
+        tbx_Bank.Text() = "Balance: " & BankBal
+
+        ' Displays "Cash Won:" text
+        tbx_Cash.Text = "Cash Won: "
+
+        ' Displays text indicating where to put your bet
+        tbx_BetAmount.Text() = "Place Bet Here"
 
         ' Populate the ComboBox control with the possible roll values
         cmb_RollValue.Items.AddRange({2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12})
         cmb_RollValue.SelectedIndex = 0
 
+
         ' Populate the ComboBox control with the amount of rolls 
-        cmb_RollAmount.Items.AddRange({10, 25, 50, 100, 250, 500, 650, 1300, 1350, 1500})
-        cmb_RollAmount.SelectedIndex = 0
+        ' cmb_RollAmount.Items.AddRange({10, 25, 50, 100, 250, 500, 650, 1300, 1350, 1500})
+        ' cmb_RollAmount.SelectedIndex = 0
 
 
+        cmb_DifficultyLevel.Items.AddRange({1, 2, 3})
+        cmb_DifficultyLevel.SelectedIndex = 0
 
 
     End Sub

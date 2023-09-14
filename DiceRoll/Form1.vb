@@ -7,17 +7,54 @@
         ' Clear any previous results
         lsb_Dice.Items.Clear()
 
+        ' Get the bet amount from the TextBox control
+        'Dim betAmount As Integer = CDec(tbx_BetAmount.Text)
+
+        ' Checks tbx_Bet for a number if not it tells you
+        Dim betAmount As Decimal
+        If tbx_BetAmount.Text() = "Place Bet Here" Then
+            MessageBox.Show("The text was meant to indcate putting a bet amount here.")
+            Return
+        ElseIf Not Decimal.TryParse(tbx_BetAmount.Text, betAmount) Then
+            MessageBox.Show("Please specify a valid bet amount.")
+            Return
+        End If
+
+        ' Subtract the bet amount from the bank balance
+        count -= betAmount
+
+        ' Get the current bank balance
+        Dim bankBalance As Decimal = count
+
+        ' Subtract the bet amount from the bank balance
+        bankBalance -= betAmount
+
+        ' Check if the player has gone bankrupt
+        If bankBalance < -1000 Then
+            ' Shows Balance of your bank as of bankrupt
+            bankBalance = count
+            tbx_Bank.Text() = "Balance: " & bankBalance & " (Bankrupt)"
+
+            ' Tells you that you dont have enough
+            tbx_Cash.Text() = "Cash Won: Not enough to bet"
+
+            MessageBox.Show("Sorry, you have gone bankrupt. Game over!", "Bankruptcy", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+            ' Reset the game
+            btn_Reset.PerformClick()
+
+            ' Exit the sub
+            Exit Sub
+        End If
+
+        ' Update the bank balance
+        count = bankBalance
+
         ' Holds number of time 12 is gotten for your cash each round
         Dim count1 As Integer
 
         ' Create random number generator
         Dim rand As New Random()
-
-        ' Get the bet amount from the TextBox control
-        Dim betAmount As Integer = CDec(tbx_BetAmount.Text)
-
-        ' Subtract the bet amount from the bank balance
-        count -= betAmount
 
         ' Get the selected roll value from the ComboBox control
         Dim rollValue As Integer = CInt(cmb_RollValue.SelectedItem)
@@ -36,13 +73,13 @@
         Select Case difficultyLevel
             Case 1
                 rewardMultiplier = 1.0
-                rollAmount = 500
+                rollAmount = 20
             Case 2
                 rewardMultiplier = 1.5
-                rollAmount = 250
+                rollAmount = 15
             Case 3
                 rewardMultiplier = 2.0
-                rollAmount = 1
+                rollAmount = 5
             Case Else
                 rewardMultiplier = 1.0
         End Select
@@ -85,23 +122,23 @@
         ' Put back to starting Amount
         count = 500
 
-        ' Shows your balance
-        Dim BankBal As Decimal
-        BankBal = count
-        tbx_Bank.Text() = "Balance: " & BankBal
-
-        ' Displays "Cash Won:" text
-        tbx_Cash.Text = "Cash Won: "
-
-        ' Displays text indicating where to put your bet
-        tbx_BetAmount.Text() = "Place Bet Here"
-
         ' TextBoxes
         tbx_Cash.Clear()
         tbx_Bank.Clear()
 
         ' ListBox
         lsb_Dice.Items.Clear()
+
+        ' Shows your balance
+        Dim BankBal As Decimal
+        BankBal = count
+        tbx_Bank.Text() = "Balance: 500"
+
+        ' Displays "Cash Won:" text
+        tbx_Cash.Text = "Cash Won: "
+
+        ' Displays text indicating where to put your bet
+        tbx_BetAmount.Text() = "Bets"
 
     End Sub
 
@@ -122,7 +159,7 @@
         tbx_Cash.Text = "Cash Won: "
 
         ' Displays text indicating where to put your bet
-        tbx_BetAmount.Text() = "Place Bet Here"
+        tbx_BetAmount.Text() = "Bets"
 
         ' Populate the ComboBox control with the possible roll values
         cmb_RollValue.Items.AddRange({2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12})
